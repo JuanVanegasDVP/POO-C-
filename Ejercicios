@@ -1,0 +1,232 @@
+//using System;
+////PUNTO 1
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Cuenta plata = new Cuenta(1000);
+
+//        int opc = 0;
+
+//        do
+//        {
+//            Console.WriteLine("MENÚ \n 0. Salir \n 1. Ingresar Saldo \n 2. Retirar Saldo \n 3. Consultar Saldo");
+//            opc = Convert.ToInt32(Console.ReadLine());
+
+//            switch (opc)
+//            {
+//                case 0:
+//                    Console.WriteLine("Saliendo del sistema");
+//                    break;
+
+//                case 1:
+//                    Console.WriteLine("Ingrese el saldo que desea ingresar a la cuenta: ");
+//                    int saldoIngresar = Convert.ToInt32(Console.ReadLine());
+//                    plata.MiembroCredit(saldoIngresar);
+//                    break;
+
+//                case 2:
+//                    Console.WriteLine("Ingrese el monto que desea retirar de la cuenta: ");
+//                    int montoRetirar = Convert.ToInt32(Console.ReadLine());
+//                    plata.MiembroCargar(montoRetirar);
+//                    break;
+
+//                case 3:
+//                    Console.WriteLine($"El saldo actual es: {plata.MiembroObtSaldo()}");
+//                    break;
+
+//                default:
+//                    Console.WriteLine("Opción inválida");
+//                    break;
+//            }
+
+//        } while (opc != 0);
+//    }
+//}
+
+////Clase Cuenta
+//class Cuenta
+//{
+//    //Atributo saldoCuenta que se almacenará en privado
+//    private int saldoCuenta;
+
+//    //Constructor de la clase Cuenta
+//    public Cuenta(int saldoInicial)
+//    {
+//        saldoCuenta = saldoInicial;
+//    }
+
+//    //Método para ingresar saldo a la cuenta
+//    public void MiembroCredit(int monto)
+//    {
+//        saldoCuenta += monto;
+//        Console.WriteLine($"Se ha ingresado {monto}. Saldo actual: {saldoCuenta}");
+//    }
+
+//    //Método para retirar saldo de la cuenta
+//    public void MiembroCargar(int monto)
+//    {
+//        if (monto > saldoCuenta)
+//        {
+//            Console.WriteLine("El monto excede el saldo de la cuenta");
+//        }
+//        else
+//        {
+//            saldoCuenta -= monto;
+//            Console.WriteLine($"Se ha retirado {monto}. Saldo actual: {saldoCuenta}");
+//        }
+//    }
+
+//    //Método para obtener el saldo actual de la cuenta
+//    public int MiembroObtSaldo()
+//    {
+//        return saldoCuenta;
+//    }
+//}
+
+
+////PUNTO 2
+
+//class Program
+//    {
+//        static void Main(string[] args)
+//        {
+
+//            //Creamos una variable opc en la cual se almacenará el menú.
+//            int opcion = 0;
+
+//            //Creamos un ciclo do-while para que el menú se repita indefinidamente.
+//            do
+//            {
+
+//                //Creamos el menú.
+//                Console.WriteLine("MENÚ\n 0.Salir\n 1.Crear Factura\n ");
+//                opcion = Convert.ToInt32(Console.ReadLine());
+
+
+
+//                //Creamos un switch en el cual pondremos las funciones para que nos retornen el valor.
+//                switch (opcion)
+//                {
+//                    case 0:
+//                        Console.WriteLine("Saliste del sistema");
+//                        break;
+
+//                    case 1:
+//                        CrearNuevaFactura();
+//                        break;
+
+//                    default:
+//                        Console.WriteLine("Opcion invalida");
+//                        break;
+//                }
+
+
+//            } while (opcion != 0);
+//        }
+
+
+//        //Creamos el método CrearNuevaFactura y solicita al usuario que ingrese los detalles de una nueva factura.
+//        //Utiliza la entrada del usuario para crear una nueva instancia de la clase Factura.
+//        static void CrearNuevaFactura()
+//        {
+//            Console.WriteLine("\nIngrese los detalles de la factura:");
+
+//            Console.Write("Número de pieza: ");
+//            string numeroDePieza = Console.ReadLine();
+
+//            Console.Write("Descripción: ");
+//            string descripcion = Console.ReadLine();
+
+//            Console.Write("Cantidad: ");
+//            int cantidad = int.Parse(Console.ReadLine());
+
+//            Console.Write("Precio por artículo: ");
+//            int precioPorArticulo = int.Parse(Console.ReadLine());
+
+
+//            //Creamos un objeto asignandole una variable llamada nuevaFactura,
+//            //que se utilizará posteriormente para mostrar los detalles de la factura recién creada.
+//            Factura nuevaFactura = new Factura(numeroDePieza, descripcion, cantidad, precioPorArticulo);
+
+
+
+//            // mostramos los detalles de la factura recién creada llamando al método MostrarDetallesFactura
+//            Console.WriteLine("\nDetalles de la nueva factura:");
+//            MostrarDetallesFactura(nuevaFactura);
+//        }
+
+
+
+//        //Creamos el método MostrarDetallesFactura que recibe una instancia de Factura como argumento y
+//        //muestra todos los detalles de esa factura en la consola.
+//        static void MostrarDetallesFactura(Factura factura)
+//        {
+//            Console.WriteLine($"Número de pieza: {factura.NumPieza}");
+//            Console.WriteLine($"Descripción: {factura.DescripcionP}");
+//            Console.WriteLine($"Cantidad: {factura.CantidadA}");
+//            Console.WriteLine($"Precio por artículo: {factura.PrecioA}");
+//            Console.WriteLine($"Monto de la factura: {factura.ObtenerMontoFactura()}");
+//            Console.WriteLine();
+//        }
+//    }
+
+
+
+////Creamos la clase Factura.
+//class Factura
+//{
+
+
+//    //Creamos los atributo de la clase que lo pondremos en privado, que almacenan la información sobre la factura.
+//    private string numPieza;
+//    private string descripcionP;
+//    private int cantidadA;
+//    private int precioA;
+
+
+//    //Creamos el constructor, inicializa los campos de la factura con los valores proporcionados al crear una instancia de la clase.
+//    public Factura(string numPieza, string descripcionP, int cantidadA, int precioA)
+//    {
+//        NumPieza = numPieza;
+//        DescripcionP = descripcionP;
+//        CantidadA = cantidadA;
+//        PrecioA = precioA;
+//    }
+
+//    //Creamos propiedades para acceder y modificar cada uno de los campos, asegurando que los valores no sean negativos.
+//    public string NumPieza
+//    {
+//        get { return numPieza; }
+//        set { numPieza = value; }
+//    }
+
+//    public string DescripcionP
+//    {
+//        get { return descripcionP; }
+//        set { descripcionP = value; }
+//    }
+
+//    public int CantidadA
+//    {
+//        get { return cantidadA; }
+//        //Aqui hacemos una validacion, para que al poner una cantidad negativa automaticamente nos ponga 0 y no la cantidad negativa.
+//        set { cantidadA = (value >= 0) ? value : 0; }
+//    }
+
+//    public int PrecioA
+//    {
+//        get { return precioA; }
+
+//        ////Aqui hacemos una validacion, para que al poner un precio negativa automaticamente nos ponga 0 y no el precio negativa.
+//        set { precioA = (value >= 0) ? value : 0; }
+//    }
+
+//    //Creamos el el metodo ObtenerMontoFactura que calcula y devuelve el monto total de la factura multiplicando 
+//    //la cantidad por el precio por artículo y lo retornamos como un int.
+//    public int ObtenerMontoFactura()
+//    {
+//        return CantidadA * PrecioA;
+//    }
+
+//}
